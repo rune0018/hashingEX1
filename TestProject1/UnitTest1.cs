@@ -24,5 +24,17 @@ namespace TestProject1
             string hej = "hej";
             Assert.NotEqual(hej, testhash.EncodeHash("he", "j"));
         }
+
+        [Fact]
+        public void Test3()
+        {
+            hashTester testhash = new hashTester();
+            testhash.EncodeHash("rune", "rune");
+            Assert.Equal(1,testhash.GetCount());
+            testhash.DeleteUser("rune", "1");
+            Assert.Equal(1,testhash.GetCount());
+            testhash.DeleteUser("rune", "rune");
+            Assert.Equal(0, testhash.GetCount());
+        }
     }
 }
